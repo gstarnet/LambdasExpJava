@@ -39,7 +39,11 @@ public class Lambdas_02_02 {
                 //if the foreach is removed, nothing will print,
                 //the foreach makes it a terminal event
                 .forEach(fruit -> System.out.println("Starts with A: " + fruit));
-
+        List<String> coll = Stream.of("apple", "pear", "banana", "cherry", "apricot")
+        		.filter(fruit -> fruit.startsWith("a"))
+        		.map(fruit -> fruit.toUpperCase())
+        		.collect(toList());
+        System.out.println(coll.toString());
         //using a stream and map operation to create a list of words in caps
         List<String> collected = Stream.of("Java", " Rocks")
                 .map(string -> string.toUpperCase())
